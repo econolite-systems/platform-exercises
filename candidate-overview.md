@@ -45,7 +45,6 @@ The following tools are pre-installed. Use whatever you are comfortable with —
 - How you approach an unfamiliar problem — your diagnostic process matters as much as the answer
 - Your ability to use Kubernetes tools to gather information before taking action
 - Clear communication: can you explain what went wrong and why in plain terms?
-- Awareness of how to prevent the same class of problem in a CI/CD pipeline
 
 ---
 
@@ -56,4 +55,3 @@ The following tools are pre-installed. Use whatever you are comfortable with —
 - When you have fixed the issue, click the **CHECK** button to confirm the service is healthy
 - After CHECK passes, your interviewer will ask a few follow-up questions
 
-Good luck — and treat it like a real incident.
