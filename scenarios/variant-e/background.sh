@@ -169,16 +169,20 @@ EOF
 kubectl create namespace mobility --dry-run=client -o yaml | kubectl apply -f -
 
 # Release 1 — healthy (replicaCount: 2)
+# No --wait: we only need the Deployment object to exist before we upgrade to 0.
+# --wait can time out on a slow cluster, causing the release to be never created.
 helm install mobility /root/mobility-chart \
   --namespace mobility \
-  --set replicaCount=2 \
-  --wait --timeout 90s 2>/dev/null || true
+  --set replicaCount=2
+
+# Give the API server a moment to persist the release secret before upgrading
+sleep 5
 
 # Release 2 — broken (replicaCount: 0, simulates accidental override in pipeline)
 helm upgrade mobility /root/mobility-chart \
   --namespace mobility \
-  --set replicaCount=0 2>/dev/null || true
+  --set replicaCount=0
 
-sleep 10
+sleep 5
 
 touch /tmp/background-done
