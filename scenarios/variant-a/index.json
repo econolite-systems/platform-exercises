@@ -1,0 +1,24 @@
+{
+  "title": "Production Incident: Centracs Mobility API",
+  "description": "A deployment just went out and customers are reporting 503 errors. Diagnose and fix the failing service.",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh",
+      "foreground": "foreground.sh"
+    },
+    "steps": [
+      {
+        "title": "Resolve the Incident",
+        "text": "step1.md",
+        "verify": "verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
